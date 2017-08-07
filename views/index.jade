@@ -15,6 +15,8 @@ html(lang='en')
     link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
     link(href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic', rel='stylesheet', type='text/css')
     link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    link(href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet")
+
     // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     // WARNING: Respond.js doesn't work if you view the page via file://
     //if lt IE 9
@@ -41,16 +43,18 @@ html(lang='en')
               a(href='events') Events
             li
               a(href='about') About Us
+            li
+              a(href='signin') Sign In
         // /.navbar-collapse
       // /.container
     // Page Header
-    // Set your background image for this header on the line below.
-    header.intro-header(style="background-image: url('img/ladiesbgsmall.jpg'); min-width='100%'")
+    // background image for header
+    header.intro-header(style="background-image: url('img/sea.jpeg'); min-width='100%'")
       .container
         .row
           .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
             .site-heading
-              img.img-responsive(src="img/ladiesbg.png")
+              img.img-responsive(src="img/ladiesbg3.png")
               //h1#home Ladies of LIGHT
               //hr.small
               //span.subheading Love.Integrity.Gratitude.Health.Transformation
@@ -58,32 +62,26 @@ html(lang='en')
     .container
       .row
         .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-          form(action='/my-handling-form-page', method='post')
-            h2 Sign up for notifications on upcoming events and more!
+            h2(style="font-weight: 400;") Sign up for notifications on upcoming events and more!
             hr
-            fieldset.form-group
-              label(for='firstname') first name
-              br
-              input#firstName.form-control(type='text', placeholder='first name')
-              br
-              label(for='firstname') last name
-              br
-              input#lastName.form-control(type='text', placeholder='last name')
-              br
-              label(for='exampleInputEmail1') email
-              input#exampleInputEmail1.form-control(type='email', placeholder='you@company.com')
-              br
-              label(for='zipCode') zip code
-              br
-              input#addressLine1.form-control(type='number', placeholder='12345')
-            fieldset.form-group
-              label(for='phone') phone
-              input#phone.form-control(type='number', placeholder='optional')
-              fieldset.form-group
-              label(for='exampleTextarea') leave us a note
-              textarea#exampleTextarea.form-control(rows='3')
-            br
-            button.btn.btn-primary(type='submit') Submit
+            form(action='newGuest' method='post')
+              .form-group
+                | First Name
+                input.form-control(type='text', placeholder='First Name' name='firstName' required)
+              .form-group
+                | Last Name
+                input.form-control(type='text', placeholder='Last Name' name='lastName')
+              .form-group
+                | Email
+                input.form-control(type='text', placeholder='Email' name='email' required)
+              .form-group
+                | Phone
+                input.form-control(type='number', placeholder='Phone Number' name='phone')
+              .form-group
+                | Zip
+                input.form-control(type='number', placeholder='Zip Code' name='zip')
+                br
+                button.btn.btn-primary(type='submit' onclick='mail()') Submit
     // Footer
     footer
       .container
@@ -108,4 +106,3 @@ html(lang='en')
     // Bootstrap Core JavaScript
     script(src='js/bootstrap.min.js')
     // Custom Theme JavaScript
-    script(src='js/clean-blog.min.js')
